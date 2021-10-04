@@ -1,0 +1,5 @@
+- hosts: dhcp_servers
+  roles:
+    - interfaces
+    - hadhcpd
+    - dnsmasq

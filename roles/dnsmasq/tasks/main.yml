@@ -1,0 +1,19 @@
+- name: Install dnsmasq packages
+  tags: [packages]
+  package:
+    name: "{{ dnsmasq_packages }}"
+    state: installed
+
+- name: Install dnsmasq configuration
+  tags: [template]
+  template:
+    src: dnsmasq.conf
+    dest: "{{ dnsmasq_config_dir }}/dnsmasq.conf"
+  notify: restart dnsmasq
+
+- name: Enable dnsmasq
+  when: manage_service|default(false)|bool
+  service:
+    name: dnsmasq
+    state: started
+    enabled: true

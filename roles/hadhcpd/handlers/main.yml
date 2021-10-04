@@ -1,0 +1,10 @@
+- name: Verify DHCPd configuration
+  listen: "restart dhcpd"
+  command: dhcpd -t
+
+- name: Restart DHCPd
+  when: manage_service|default(false)|bool
+  listen: "restart dhcpd"
+  service:
+    name: dhcpd
+    state: restarted

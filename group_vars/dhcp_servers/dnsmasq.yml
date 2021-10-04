@@ -1,0 +1,158 @@
+dnsmasq_domains:
+  - curator.massopen.cloud
+  - moc-infra.massopen.cloud
+  - zero.massopen.cloud
+
+dnsmasq_hosts:
+  - name: "*.apps.curator.massopen.cloud"
+    address: 192.12.185.173
+
+  - name: "*.apps.moc-infra.massopen.cloud"
+    address: 192.12.185.143
+
+  - name: "*.apps.zero.massopen.cloud"
+    address: 192.12.185.105
+
+  - name: cnv-dhcp1.massopen.cloud
+    address: 192.12.185.101
+
+  - name: cnv-dhcp2.massopen.cloud
+    address: 192.12.185.102
+
+  - name: api.curator.massopen.cloud
+    address: 192.12.185.171
+
+  - name: ns1.curator.massopen.cloud
+    address: 192.12.185.172
+
+  - name: lb.curator.massopen.cloud
+    address: 192.12.185.173
+
+  - name: provisioner.curator.massopen.cloud
+    address: 192.12.185.170
+
+  - name: os-ctrl-0.curator.massopen.cloud
+    address: 192.12.185.175
+
+  - name: os-ctrl-1.curator.massopen.cloud
+    address: 192.12.185.176
+
+  - name: os-ctrl-2.curator.massopen.cloud
+    address: 192.12.185.177
+
+  - name: provisioner-ipmi.curator.massopen.cloud
+    address: 10.0.15.29
+
+  - name: os-ctrl-0-ipmi.curator.massopen.cloud
+    address: 10.0.15.5
+
+  - name: os-ctrl-1-ipmi.curator.massopen.cloud
+    address: 10.0.3.5
+
+  - name: os-ctrl-2-ipmi.curator.massopen.cloud
+    address: 10.0.5.7
+
+  - name: api.moc-infra.massopen.cloud
+    address: 192.12.185.141
+
+  - name: ns1.moc-infra.massopen.cloud
+    address: 192.12.185.142
+
+  - name: lb.moc-infra.massopen.cloud
+    address: 192.12.185.143
+
+  - name: provisioner.moc-infra.massopen.cloud
+    address: 192.12.185.140
+
+  - name: os-ctrl-0.moc-infra.massopen.cloud
+    address: 192.12.185.145
+
+  - name: os-ctrl-1.moc-infra.massopen.cloud
+    address: 192.12.185.146
+
+  - name: os-ctrl-2.moc-infra.massopen.cloud
+    address: 192.12.185.147
+
+  - name: provisioner-ipmi.moc-infra.massopen.cloud
+    address: 10.0.5.13
+
+  - name: os-ctrl-0-ipmi.moc-infra.massopen.cloud
+    address: 10.0.15.2
+
+  - name: os-ctrl-1-ipmi.moc-infra.massopen.cloud
+    address: 10.0.17.36
+
+  - name: os-ctrl-2-ipmi.moc-infra.massopen.cloud
+    address: 10.0.3.6
+
+  - name: api.ocp4-aio.cnv2.massopen.cloud
+    address: 192.12.185.21
+
+  - name: api.zero.massopen.cloud
+    address: 192.12.185.104
+
+  - name: ns1.zero.massopen.cloud
+    address: 192.12.185.106
+
+  - name: lb.zero.massopen.cloud
+    address: 192.12.185.105
+
+  - name: provisioner.zero.massopen.cloud
+    address: 192.12.185.103
+
+  - name: os-ctrl-0.zero.massopen.cloud
+    address: 192.12.185.110
+
+  - name: os-ctrl-1.zero.massopen.cloud
+    address: 192.12.185.111
+
+  - name: os-ctrl-2.zero.massopen.cloud
+    address: 192.12.185.112
+
+  - name: os-wrk-0.zero.massopen.cloud
+    address: 192.12.185.115
+
+  - name: os-wrk-1.zero.massopen.cloud
+    address: 192.12.185.116
+
+  - name: os-wrk-2.zero.massopen.cloud
+    address: 192.12.185.117
+
+  - name: os-sto-0.zero.massopen.cloud
+    address: 192.12.185.130
+
+  - name: os-sto-1.zero.massopen.cloud
+    address: 192.12.185.131
+
+  - name: os-sto-2.zero.massopen.cloud
+    address: 192.12.185.132
+
+  - name: provisioner-ipmi.zero.massopen.cloud
+    address: 10.0.17.25
+
+  - name: os-ctrl-0-ipmi.zero.massopen.cloud
+    address: 10.0.17.34
+
+  - name: os-ctrl-1-ipmi.zero.massopen.cloud
+    address: 10.0.3.13
+
+  - name: os-ctrl-2-ipmi.zero.massopen.cloud
+    address: 10.0.5.12
+
+  - name: os-wrk-0-ipmi.zero.massopen.cloud
+    address: 10.0.15.11
+
+  - name: os-wrk-1-ipmi.zero.massopen.cloud
+    address: 10.0.3.12
+
+  - name: os-wrk-2-ipmi.zero.massopen.cloud
+    address: 10.0.17.35
+
+  - name: os-sto-0-ipmi.zero.massopen.cloud
+    address: 10.0.3.10
+
+  - name: os-sto-1-ipmi.zero.massopen.cloud
+    address: 10.0.19.34
+
+  - name: os-sto-2-ipmi.zero.massopen.cloud
+    address: 10.0.19.38

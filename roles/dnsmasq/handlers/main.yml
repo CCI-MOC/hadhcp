@@ -1,0 +1,10 @@
+- name: Validate dnsmasq configuration
+  listen: restart dnsmasq
+  command: dnsmasq --test
+
+- name: Restart dnsmasq
+  when: manage_service|default(false)|bool
+  listen: restart dnsmasq
+  service:
+    name: dnsmasq
+    state: restarted

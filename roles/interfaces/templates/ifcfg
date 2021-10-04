@@ -1,0 +1,13 @@
+NAME={{ iface.name }}
+DEVICE={{ iface.device }}
+TYPE={{ iface.type|default("Ethernet") }}
+BOOTPROTO={{ iface.bootproto|default("none") }}
+{% if 'address' in iface %}
+IPADDR={{ iface.address|ipaddr("address") }}
+PREFIX={{ iface.address|ipaddr("prefix") }}
+{% endif %}
+DEFROUTE={% if iface.defroute|default(false) %}no{% else %}yes{% endif %}
+
+{% for nameserver in iface.nameservers|default([]) %}
+DNS{{ loop.index }}={{ nameserver }}
+{% endfor %}

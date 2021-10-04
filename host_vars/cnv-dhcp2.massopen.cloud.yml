@@ -1,0 +1,25 @@
+dnsmasq_listen_addresses:
+  - 129.10.5.56
+  - 192.12.185.102
+  - 10.0.120.11
+
+iface_interfaces:
+  - device: ens3
+    name: baremetal
+    address: 192.12.185.102/24
+  - device: ens9
+    name: ipmi
+    address: 10.0.0.51/19
+  - device: ens10
+    name: public
+    address: 129.10.5.56/24
+    defroute: true
+    routes:
+      - address: 0.0.0.0/0
+        gateway: 129.10.5.1
+    nameservers:
+      - 8.8.8.8
+      - 8.8.4.4
+  - device: ens12
+    name: nese
+    address: 10.0.120.11/22

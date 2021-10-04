@@ -1,0 +1,8 @@
+dhcp_config_dir: /etc/dhcp
+dhcp_packages:
+  - dhcp-server
+  - iproute
+  - iputils
+  - tcpdump
+dhcp_default_lease_time: 1314000
+dhcp_max_lease_time: 2628000

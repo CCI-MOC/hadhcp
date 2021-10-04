@@ -1,0 +1,15 @@
+dhcp_omapi_key: "{{ lookup('amazon.aws.aws_secret', 'net/dhcp/omapi_key') }}"
+
+dhcp_subnets:
+  192.12.185.0/24: |
+    option domain-name-servers 192.12.185.102, 192.12.185.101;
+    option routers 192.12.185.1;
+  10.0.120.0/22: |
+    option domain-name-servers 8.8.8.8, 8.8.4.4;
+    pool {
+        failover peer "failover-partner";
+        range 10.0.120.100 10.0.123.200;
+    }
+
+dhcp_extra_config: |
+  include "/etc/dhcp/static.conf";

@@ -1,0 +1,7 @@
+{% for route in iface.routes %}
+{% set dst_addr = route.address|ipaddr("address") %}
+{% set dst_net = route.address|ipaddr("network") %}
+ADDRESS{{ loop.index0 }}={{ dst_addr|ternary(dst_addr, dst_net) }}
+NETMASK{{ loop.index0 }}={{ route.address|ipaddr("netmask") }}
+GATEWAY{{ loop.index0 }}={{ route.gateway }}
+{% endfor %}

@@ -1,0 +1,18 @@
+- name: Configuring interfaces
+  tags: [template]
+  template:
+    src: ifcfg
+    dest: "{{ iface_config_dir }}/ifcfg-{{ item.name }}"
+  vars:
+    iface: "{{ item }}"
+  loop: "{{ iface_interfaces }}"
+
+- name: Configure routes
+  tags: [template]
+  template:
+    src: route
+    dest: "{{ iface_config_dir }}/route-{{ item.name }}"
+  when: iface.routes|default(false)
+  vars:
+    iface: "{{ item }}"
+  loop: "{{ iface_interfaces }}"

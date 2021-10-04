@@ -1,0 +1,31 @@
+- name: Install DHCP packages
+  package:
+    name: "{{ dhcp_packages }}"
+    state: installed
+
+- name: Install main DHCP configuration
+  tags: [template]
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ dhcp_config_dir }}/{{ item.dest }}"
+  notify: restart dhcpd
+  loop:
+    - src: common.conf
+      dest: common.conf
+    - src: dhcpd-{{ dhcp_role }}.conf
+      dest: dhcpd.conf
+
+- name: Install additional DHCP configuration
+  tags: [template]
+  template:
+    src: "{{ item }}"
+    dest: "{{ dhcp_config_dir }}/{{ item|basename }}"
+  notify: restart dhcpd
+  loop: "{{ query('fileglob', 'dhcp_additional_files/*.conf') }}"
+
+- name: Enable DHCPd
+  when: manage_service|default(false)|bool
+  service:
+    name: dhcpd
+    state: started
+    enabled: true

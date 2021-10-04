@@ -1,0 +1,6 @@
+dnsmasq_config_dir: /etc
+dnsmasq_packages:
+  - dnsmasq
+  - iproute
+  - iputils
+  - tcpdump
