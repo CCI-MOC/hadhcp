@@ -6,3 +6,7 @@ dhcp_packages:
   - tcpdump
 dhcp_default_lease_time: 1314000
 dhcp_max_lease_time: 2628000
+
+# While this can technically be anything, port 647 is explicitly
+# permitted by the default selinux policy for dhcpd.
+dhcp_failover_port: 647
