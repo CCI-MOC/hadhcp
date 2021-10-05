@@ -24,7 +24,7 @@
   loop: "{{ query('fileglob', 'dhcp_additional_files/*.conf') }}"
 
 - name: Enable DHCPd
-  when: manage_service|default(false)|bool
+  when: manage_services|default(false)|bool
   service:
     name: dhcpd
     state: started

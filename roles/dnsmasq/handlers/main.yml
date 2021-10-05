@@ -3,7 +3,7 @@
   command: dnsmasq --test
 
 - name: Restart dnsmasq
-  when: manage_service|default(false)|bool
+  when: manage_services|default(false)|bool
   listen: restart dnsmasq
   service:
     name: dnsmasq
