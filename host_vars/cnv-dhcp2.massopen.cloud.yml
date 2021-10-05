@@ -1,7 +1,6 @@
 dnsmasq_listen_addresses:
   - 129.10.5.56
   - 192.12.185.102
-  - 10.0.120.11
 
 iface_interfaces:
   - device: ens3
