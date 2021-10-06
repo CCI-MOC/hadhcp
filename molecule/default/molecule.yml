@@ -3,12 +3,12 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: cnv-dhcp1.massopen.cloud
+  - name: dhcp1
     image: "${MOLECULE_IMAGE:-quay.io/fedora/fedora:34}"
     pre_build_image: true
     groups:
       - dhcp_servers
-  - name: cnv-dhcp2.massopen.cloud
+  - name: dhcp2
     image: "${MOLECULE_IMAGE:-quay.io/fedora/fedora:34}"
     pre_build_image: true
     groups:
@@ -19,10 +19,12 @@ provisioner:
     group_vars:
       dhcp_servers:
         manage_services: false
+        dnsmasq_listen_addresses:
+          - 1.2.3.4
     host_vars:
-      cnv-dhcp1.massopen.cloud:
+      dhcp1:
         dhcp_role: primary
-      cnv-dhcp2.massopen.cloud:
+      dhcp2:
         dhcp_role: secondary
 verifier:
   name: ansible

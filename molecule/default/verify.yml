@@ -1,0 +1,32 @@
+- hosts: dhcp_servers
+  gather_facts: false
+  tasks:
+    - name: check if expected files exist
+      stat:
+        path: "{{ item }}"
+      loop:
+        - /etc/dhcp/common.conf
+        - /etc/dhcp/static.conf
+        - /etc/dhcp/dhcpd.conf
+        - /etc/dnsmasq.conf
+      register: stat
+
+    - name: assert that expected files exist
+      assert:
+        that: "{{ item.stat.exists }}"
+        quiet: true
+      loop: "{{ stat.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+- hosts: dhcp1
+  gather_facts: false
+  tasks:
+    - name: verify this server has primary role
+      command: grep primary /etc/dhcp/dhcpd.conf
+
+- hosts: dhcp2
+  gather_facts: false
+  tasks:
+    - name: verify this server has secondary role
+      command: grep secondary /etc/dhcp/dhcpd.conf

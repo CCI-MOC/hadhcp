@@ -1,0 +1,32 @@
+on:
+  push:
+    paths-ignore:
+      - 'changelog/config.env'
+
+  pull_request:
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '^3.9'
+
+      - name: Install pre-commit
+        run: |
+          pip install -r test-requirements.txt
+
+      - name: Run linters
+        run: |
+          export PATH=$HOME/.cache/bin:$PATH
+          pre-commit run --all-files
+
+      - name: Run molecule
+        run: |
+          molecule test
