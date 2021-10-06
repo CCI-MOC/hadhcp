@@ -1,0 +1,9 @@
+- hosts: dhcp_servers
+  gather_facts: false
+  tasks:
+    - copy:
+        dest: /etc/flagfile
+        content: |
+          This is a test.
+
+- import_playbook: ../../playbook.yml

@@ -1,0 +1,31 @@
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: cnv-dhcp1.massopen.cloud
+    image: "${MOLECULE_IMAGE:-quay.io/fedora/fedora:34}"
+    pre_build_image: true
+    groups:
+      - dhcp_servers
+  - name: cnv-dhcp2.massopen.cloud
+    image: "${MOLECULE_IMAGE:-quay.io/fedora/fedora:34}"
+    pre_build_image: true
+    groups:
+      - dhcp_servers
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      dhcp_servers:
+        manage_services: false
+    host_vars:
+      cnv-dhcp1.massopen.cloud:
+        dhcp_role: primary
+      cnv-dhcp2.massopen.cloud:
+        dhcp_role: secondary
+verifier:
+  name: ansible
+lint: |
+  set -e
+  yamllint .
