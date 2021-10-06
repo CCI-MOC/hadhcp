@@ -4,8 +4,8 @@ dhcp_packages:
   - iproute
   - iputils
   - tcpdump
-dhcp_default_lease_time: 1314000
-dhcp_max_lease_time: 2628000
+dhcp_default_lease_time: 1314000  # 15 days
+dhcp_max_lease_time: 2628000  # 1 month
 
 # While this can technically be anything, port 647 is explicitly
 # permitted by the default selinux policy for dhcpd.

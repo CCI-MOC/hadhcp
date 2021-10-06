@@ -6,6 +6,10 @@ dhcp_subnets:
     option routers 192.12.185.1;
   10.0.120.0/22: |
     option domain-name-servers 8.8.8.8, 8.8.4.4;
+    option classless-static-routes
+      23, 10, 255, 116, 10, 0, 120, 1,
+      25, 10, 247, 236, 0, 10, 0, 120, 1,
+      25, 140, 247, 236, 0, 10, 0, 120, 1;
     pool {
         failover peer "failover-partner";
         range 10.0.120.100 10.0.123.200;
