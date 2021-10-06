@@ -1,3 +1,8 @@
+- name: Ensure interface config dir exists
+  file:
+    path: "{{ iface_config_dir }}"
+    state: directory
+
 - name: Configuring interfaces
   tags: [template]
   template:
