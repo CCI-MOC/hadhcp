@@ -1,5 +1,3 @@
-dhcp_omapi_key: "{{ lookup('amazon.aws.aws_secret', 'net/dhcp/omapi_key') }}"
-
 dhcp_subnets:
   192.12.185.0/24: |
     option domain-name-servers 192.12.185.102, 192.12.185.101;
