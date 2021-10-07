@@ -1,7 +1,21 @@
 - hosts: dhcp_servers
   gather_facts: false
   tasks:
-    - name: check if expected files exist
+    - name: get information on installed pacakges
+      package_facts:
+
+    - name: check if expected packages are installed
+      assert:
+        that: item in ansible_facts.packages
+        quiet: true
+      loop:
+        - dnsmasq
+        - dhcp-server
+        - tcpdump
+        - iproute
+        - iputils
+
+    - name: get information on expected files
       stat:
         path: "{{ item }}"
       loop:
@@ -11,7 +25,7 @@
         - /etc/dnsmasq.conf
       register: stat
 
-    - name: assert that expected files exist
+    - name: check that expected files exist
       assert:
         that: "{{ item.stat.exists }}"
         quiet: true
